@@ -19,4 +19,4 @@ jobs:
           downloadType: 'single'
           artifactName: objc_program
           downloadPath: $(System.DefaultWorkingDirectory)
-      - bash: ./a.out
+      - bash: objc_program/a.out

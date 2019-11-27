@@ -3,7 +3,7 @@ jobs:
     pool:
       vmImage: 'macOS-10.14'
     steps:
-      - bash: clang -fobjc-arc objc.m
+      - bash: export MACOSX_DEPLOYMENT_TARGET=10.11 && clang -fobjc-arc objc.m
       - task: PublishBuildArtifacts@1
         inputs:
           pathtoPublish: a.out

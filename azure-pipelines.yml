@@ -1,0 +1,21 @@
+jobs:
+  - job: compile
+    pool:
+      vmImage: 'macOS-10.14'
+    steps:
+      - bash: clang -fobjc-arc objc.m
+      - task: PublishBuildArtifacts@1
+        inputs:
+          pathtoPublish: a.out
+          artifactName: objc_program
+
+  - job: run
+    pool:
+      vmImage: 'macOS-10.13'
+    steps:
+      - task: DownloadBuildArtifacts@0
+        inputs:
+          downloadType: 'single'
+          artifactName: objc_program
+          downloadPath: $(System.DefaultWorkingDirectory)
+      - bash: ./a.out

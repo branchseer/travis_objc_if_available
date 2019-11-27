@@ -19,4 +19,4 @@ jobs:
           downloadType: 'single'
           artifactName: objc_program
           downloadPath: $(System.DefaultWorkingDirectory)
-      - bash: objc_program/a.out
+      - bash: chmod +x objc_program/a.out && objc_program/a.out
